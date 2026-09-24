@@ -1,5 +1,5 @@
-numpy>=1.26
-opencv-python>=4.8
+numpy>=1.26,<2.3
+opencv-python-headless==4.13.0.92
 scipy>=1.11
 scikit-image>=0.22
 pandas>=2.0
