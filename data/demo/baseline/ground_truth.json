@@ -1,0 +1,37 @@
+{
+  "model": "similarity",
+  "matrix": [
+    [
+      1.1685163211150529,
+      -0.16422425913287722,
+      16.6286861966949
+    ],
+    [
+      0.16422425913287722,
+      1.1685163211150529,
+      -118.31061538921364
+    ]
+  ],
+  "disclaimer": "Synthetic lunar-like terrain for software development. Not Chandrayaan-2, LRO, SELENE, or any other mission product.",
+  "parameters": {
+    "preset": "baseline",
+    "seed": 7,
+    "size": 640,
+    "scale": 1.18,
+    "rotation_deg": 8.0,
+    "translation_px": [
+      18.0,
+      -12.0
+    ],
+    "sun_source": [
+      58.0,
+      22.0
+    ],
+    "sun_reference": [
+      38.0,
+      28.0
+    ],
+    "cross_sensor_simulation": false,
+    "disclaimer": "Synthetic lunar-like terrain for software development. Not Chandrayaan-2, LRO, SELENE, or any other mission product."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "origin": "synthetic",
+  "metadata_kind": "simulation_parameter",
+  "sensor": "LRO NAC",
+  "reference_catalog": "LRO NAC",
+  "sun_azimuth_deg": 30.0,
+  "sun_elevation_deg": 33.0,
+  "notes": "Synthetic lunar-like terrain for software development. Not Chandrayaan-2, LRO, SELENE, or any other mission product.",
+  "simulation": {
+    "preset": "sun_angle",
+    "seed": 7,
+    "size": 640,
+    "scale": 1.12,
+    "rotation_deg": 6.0,
+    "translation_px": [
+      14.0,
+      16.0
+    ],
+    "sun_source": [
+      84.0,
+      18.0
+    ],
+    "sun_reference": [
+      30.0,
+      33.0
+    ],
+    "cross_sensor_simulation": false,
+    "disclaimer": "Synthetic lunar-like terrain for software development. Not Chandrayaan-2, LRO, SELENE, or any other mission product."
+  },
+  "product_id": null
+}

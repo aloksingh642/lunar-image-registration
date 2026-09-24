@@ -1,0 +1,43 @@
+# Default configuration for the lunar correspondence prototype.
+# Paths are never hard-coded. Unknown metadata is optional.
+
+detector: sift
+rootsift: true
+max_features: 5000
+ratio: 0.80
+scale_search: true
+scale_candidates: [0.5, 0.75, 1.0, 1.33, 1.75, 2.0, 2.5]
+max_working_side: 960
+auto_retry: true
+rng_seed: 42
+make_visuals: true
+max_draw: 220
+
+preprocess:
+  denoise: bilateral          # none | gaussian | bilateral | median
+  contrast: clahe             # none | clahe | histogram_eq
+  normalize: percentile       # none | minmax | percentile | zscore
+  illumination: auto          # auto | none | retinex | gradient | dog
+  histogram_match: false
+  clahe_clip: 2.0
+  clahe_grid: 8
+
+geometry:
+  model: auto                 # auto | similarity | affine | homography
+  estimator: magsac           # magsac | ransac
+  ransac_threshold_px: 3.0
+  confidence: 0.999
+  max_iters: 4000
+
+spatial:
+  grid_rows: 6
+  grid_cols: 6
+  per_cell: 3
+  min_spacing_px: 6.0
+
+refinement:
+  enabled: true
+  method: ncc                 # ncc | cornersubpix
+  template_radius: 8
+  search_radius: 4
+  ncc_accept: 0.40

@@ -1,0 +1,14 @@
+{
+  "origin": "user",
+  "sensor": "OHRC",
+  "reference_catalog": null,
+  "gsd_m": null,
+  "sun_azimuth_deg": null,
+  "sun_elevation_deg": null,
+  "incidence_angle_deg": null,
+  "emission_angle_deg": null,
+  "phase_angle_deg": null,
+  "acquisition_time_utc": null,
+  "product_id": null,
+  "notes": "Fill only values you actually have. Delete unknown keys instead of guessing."
+}

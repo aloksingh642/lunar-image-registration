@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">Lunar correspondence pipeline</title>
+  <desc id="desc">Stages from image input through preprocessing, matching, outlier rejection, spatial selection, refinement, warp, metrics, and export.</desc>
+  <style>
+    .bg { fill: #0c1220; }
+    .panel { fill: #162033; stroke: #314562; stroke-width: 1.4; }
+    .gold { fill: #e0b15a; }
+    .text { fill: #e7eef8; font-family: "Segoe UI", sans-serif; font-size: 15px; }
+    .small { fill: #9aabc6; font-family: "Segoe UI", sans-serif; font-size: 12px; }
+    .title { fill: #f4f7fb; font-family: "Segoe UI", sans-serif; font-size: 22px; font-weight: 600; }
+    .arrow { stroke: #e0b15a; stroke-width: 1.6; fill: none; }
+  </style>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="36" y="42">PS 26166 — correspondence and registration</text>
+  <text class="small" x="36" y="64">Synthetic data and real files enter the same pipeline. Ground truth is used only when a simulator or the user supplies it.</text>
+
+  <g id="inputs">
+    <rect class="panel" x="36" y="92" width="220" height="92" rx="10"/>
+    <text class="gold" x="52" y="118" font-size="13" font-family="Segoe UI">INPUT</text>
+    <text class="text" x="52" y="142">Source + reference</text>
+    <text class="small" x="52" y="162">Optional metadata, mask, GSD</text>
+    <rect class="panel" x="36" y="198" width="220" height="78" rx="10"/>
+    <text class="text" x="52" y="228">Synthetic lunar terrain</text>
+    <text class="small" x="52" y="250">Known transform. Labeled synthetic.</text>
+  </g>
+
+  <g id="core">
+    <rect class="panel" x="300" y="92" width="250" height="70" rx="10"/>
+    <text class="gold" x="316" y="116" font-size="13" font-family="Segoe UI">PREPROCESS</text>
+    <text class="small" x="316" y="140">CLAHE, retinex / gradient, pyramid</text>
+    <rect class="panel" x="300" y="176" width="250" height="70" rx="10"/>
+    <text class="gold" x="316" y="200" font-size="13" font-family="Segoe UI">FEATURES + SCALE SEARCH</text>
+    <text class="small" x="316" y="224">SIFT / ORB / AKAZE, RootSIFT, resample</text>
+    <rect class="panel" x="300" y="260" width="250" height="70" rx="10"/>
+    <text class="gold" x="316" y="284" font-size="13" font-family="Segoe UI">MATCH</text>
+    <text class="small" x="316" y="308">Ratio test. Coordinates preserved.</text>
+    <rect class="panel" x="300" y="344" width="250" height="70" rx="10"/>
+    <text class="gold" x="316" y="368" font-size="13" font-family="Segoe UI">ROBUST FIT</text>
+    <text class="small" x="316" y="392">RANSAC or MAGSAC. Simpler model first.</text>
+  </g>
+
+  <g id="right">
+    <rect class="panel" x="600" y="92" width="250" height="70" rx="10"/>
+    <text class="gold" x="616" y="116" font-size="13" font-family="Segoe UI">SPATIAL SELECTION</text>
+    <text class="small" x="616" y="140">Grid cap. Coverage and uniformity.</text>
+    <rect class="panel" x="600" y="176" width="250" height="70" rx="10"/>
+    <text class="gold" x="616" y="200" font-size="13" font-family="Segoe UI">SUB-PIXEL REFINE</text>
+    <text class="small" x="616" y="224">NCC peak + quality. Optional cornerSubPix.</text>
+    <rect class="panel" x="600" y="260" width="250" height="70" rx="10"/>
+    <text class="gold" x="616" y="284" font-size="13" font-family="Segoe UI">WARP</text>
+    <text class="small" x="616" y="308">Registered image, blend, checkerboard.</text>
+    <rect class="panel" x="600" y="344" width="250" height="70" rx="10"/>
+    <text class="gold" x="616" y="368" font-size="13" font-family="Segoe UI">EVALUATE + EXPORT</text>
+    <text class="small" x="616" y="392">RMSE, inliers, coverage, CSV / JSON.</text>
+  </g>
+
+  <g id="side">
+    <rect class="panel" x="890" y="92" width="194" height="150" rx="10"/>
+    <text class="gold" x="906" y="116" font-size="13" font-family="Segoe UI">TWO EVALUATION MODES</text>
+    <text class="small" x="906" y="144">Synthetic benchmark:</text>
+    <text class="small" x="906" y="162">error vs known transform.</text>
+    <text class="small" x="906" y="190">No ground truth:</text>
+    <text class="small" x="906" y="208">residual only. Never invented.</text>
+    <rect class="panel" x="890" y="260" width="194" height="154" rx="10"/>
+    <text class="gold" x="906" y="284" font-size="13" font-family="Segoe UI">NOT IN THIS PROTOTYPE</text>
+    <text class="small" x="906" y="312">Rigorous sensor model</text>
+    <text class="small" x="906" y="330">DEM orthorectification</text>
+    <text class="small" x="906" y="348">IIRS spectral matching</text>
+    <text class="small" x="906" y="366">Learned matcher</text>
+    <text class="small" x="906" y="384">Mission certification</text>
+  </g>
+
+  <path class="arrow" d="M256 138 H300"/>
+  <path class="arrow" d="M550 127 H600"/>
+  <path class="arrow" d="M425 162 V176"/>
+  <path class="arrow" d="M425 246 V260"/>
+  <path class="arrow" d="M425 330 V344"/>
+  <path class="arrow" d="M725 162 V176"/>
+  <path class="arrow" d="M725 246 V260"/>
+  <path class="arrow" d="M725 330 V344"/>
+  <text class="small" x="36" y="470">Dashboard and CLI call the same pipeline. Originals are not overwritten. A reliability flag can say the fit is too thin to trust.</text>
+  <text class="small" x="36" y="494">Similarity uses RANSAC because OpenCV's partial-affine estimator has no MAGSAC. Affine and homography can use USAC_MAGSAC.</text>
+</svg>

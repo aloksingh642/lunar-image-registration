@@ -1,0 +1,30 @@
+{
+  "origin": "synthetic",
+  "metadata_kind": "simulation_parameter",
+  "sensor": "TMC-2",
+  "sun_azimuth_deg": 55.0,
+  "sun_elevation_deg": 24.0,
+  "notes": "Synthetic lunar-like terrain for software development. Not Chandrayaan-2, LRO, SELENE, or any other mission product.",
+  "simulation": {
+    "preset": "large_scale",
+    "seed": 7,
+    "size": 640,
+    "scale": 0.48,
+    "rotation_deg": 11.0,
+    "translation_px": [
+      10.0,
+      -8.0
+    ],
+    "sun_source": [
+      55.0,
+      24.0
+    ],
+    "sun_reference": [
+      40.0,
+      30.0
+    ],
+    "cross_sensor_simulation": false,
+    "disclaimer": "Synthetic lunar-like terrain for software development. Not Chandrayaan-2, LRO, SELENE, or any other mission product."
+  },
+  "product_id": null
+}
